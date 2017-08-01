@@ -1,7 +1,7 @@
 <div class="formlogin">
     <div class="login">
       <h1>Login to Web App</h1>
-      <form method="post" action="index.html">
+      <form method="post" action="<?php echo url("user/register")?>">
         <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
         <p><input type="password" name="password" value="" placeholder="Password"></p>
         <p class="remember_me">

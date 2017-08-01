@@ -1,0 +1,17 @@
+
+
+#指定字段及过滤器等信息
+
+username:
+  _ui: textbox
+  _filters: ['trim','strtolower']
+  _label: "用户名 "
+account:
+  _label: "登录名"	
+password:
+  _ui: password
+  _label: "密码"
+sex:
+  _label: "性别"
+email:
+  _label: "邮箱"
