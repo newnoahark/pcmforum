@@ -288,3 +288,12 @@ ul li ul li a:link,ul li ul li a:visited{
 ul li ul li a:hover{ 
  background-color:#009933; 
 }
+
+.fileupload {
+	margin:0 auto;
+	margin-top:10px;
+	width:100px;
+}
+
+
+

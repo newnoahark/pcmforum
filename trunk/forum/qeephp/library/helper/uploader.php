@@ -191,6 +191,18 @@ class Helper_Uploader_File {
 		$this->_file['is_moved'] = false;
 		$this->_name = $name;
 	}
+	/*
+	 增加人：潘昌明
+	 增加内容： 返回上传文件信息
+	 时间： 2017.8.1
+
+	*/
+	 function fileinfo() {
+	 	return $this->_file;
+	 }
+
+
+
 
 	/**
 	 * 返回上传文件对象的名字
