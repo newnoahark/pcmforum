@@ -10,7 +10,7 @@
       	<p>	
       		<?php echo empty($forminfo['account']) ? '' : array_shift($forminfo['account']); ?>
       	</p>
-      	<p><input type="text" name="password" value="" placeholder="Password"></p>
+      	<p><input type="password" name="password" value="" placeholder="Password"></p>
       	<p>
       		<?php echo empty($forminfo['password']) ? '' : array_shift($forminfo['password']); ?>
       	</p>

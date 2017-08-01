@@ -20,8 +20,7 @@ class Controller_User extends Controller_Abstract {
 		
 		if ($this->_context->isPOST()&&empty($form_error))
 		{
-			try {
-				
+			try {				
 				$user = new User ( $this->_context->post () );
 				$user->save();
 				dump($user->id());
