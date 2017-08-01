@@ -22,6 +22,9 @@
       <ul class="links">
         <li><a href="http://qeephp.org/docs/qeephp/api/" target="_blank">QeePHP API 文档</a></li>
         <li><a href="http://www.php.net/docs.php" target="_blank">PHP 文档</a></li>
+        <li>
+        <?php echo isset($userinfo)?$userinfo:""?>
+        <li>
       </ul>
     </li>
   </ul>

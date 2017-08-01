@@ -15,15 +15,9 @@ class Controller_User extends Controller_Abstract {
 	}
 	function actionregister() {
 		// 为 $this->_view 指定的值将会传递数据到视图中
-		// $this->_view['text'] = 'Hello!';
 		$form_error = User::meta()->validate($_POST);
 		$form = new Form_userLogin();
 		
-		if(!$form->validate($_POST)){
-			dump($form->validate($_POST)."eeee");
-			dump($form->value());
-			dump($form->values());
-		}
 		if ($this->_context->isPOST()&&empty($form_error))
 		{
 			try {
@@ -31,12 +25,13 @@ class Controller_User extends Controller_Abstract {
 				$user = new User ( $this->_context->post () );
 				$user->save();
 				dump($user->id());
+
 			} catch ( AclUser_DuplicateUsernameException $ex ) {
 				$form ['username']->invalidate ( "您要注册用户名 {$user->username} 已经存在了" );
 			}
 		}
 		
-		$this->_view ["forminfo"] = $form_error;
+		if ($this->_context->isPOST())$this->_view ["forminfo"] = $form_error;
 	}
 }
 
