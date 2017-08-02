@@ -1,0 +1,15 @@
+file_name:
+  _label: "文件名"
+
+file_type:
+  _label: "文件类型"
+limit_format:
+  _label: "限制格式"
+limit_size:
+  _label: "限制大小"
+complete_code:
+  _label: "实现代码"
+status:
+  _label: "状态"
+created:
+  _label: "创建时间"

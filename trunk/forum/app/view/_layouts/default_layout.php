@@ -25,7 +25,7 @@
 	<div class="header-center">
 		<div class="leftmenu">
 			<div class="imglog"><a href="<?php echo url('default/index') ?>">img</a></div>
-			<div class="contextlog">log</div>
+			<div class="contextlog"><a href="<?php echo url('file/filestylesave') ?>">log</a></div>
 		</div>
 		<div class="rightmenu">
 			<div class="usermenu">
@@ -34,6 +34,7 @@
 						<ul>
 							<li><a href="<?php echo url('user/login') ?>">登录</a></li>
 							<li><a href="<?php echo url('user/register') ?>">注册</a></li>
+							<li><a href="<?php echo url('fileupload/upload') ?>">上传</a></li>
 							<li><a href="#">退出</a></li>
 						</ul>
 					</li>

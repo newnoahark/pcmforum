@@ -271,6 +271,15 @@ input[type=submit]:active {
  background-color:#E6E6E6; 
  color:#000000;	
 }
+.contextlog a {
+ text-decoration:none;
+ background-color:white;
+ color:#000000;
+}
+.contextlog a:hover {
+ background-color:#E6E6E6; 
+ color:#000000; 
+}
 .usermenu a:hover{ 
  background-color:#666666; 
  color:#FFFFFF; 
@@ -292,8 +301,19 @@ ul li ul li a:hover{
 .fileupload {
 	margin:0 auto;
 	margin-top:10px;
-	width:100px;
+	width:30%;
+  height: 300px;
+  background-color:pink;
 }
-
+/*
+.fileupload input[type=submit]{
+  /*background-color: red;*/
+ padding:3px; width:80px; height:30px;
+   border: 2px solid #dedede;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:15px;            /* W3C syntax */
+}
+*/
 
 

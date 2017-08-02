@@ -2,7 +2,6 @@
 <?php $this->_block('photocenter')?>
 <?php echo "inline";?>
 <?php $this->_endblock(); ?>
-
 <?php $this->_block('content')?>
-<?php $this->_element('uploadfile'); ?>
+<?php $this->_element('filestyle'); ?>
 <?php $this->_endblock(); ?>
