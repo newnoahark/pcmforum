@@ -31,7 +31,7 @@ class Controller_File extends Controller_Abstract
 			 catch (Exception $e) {
 					echo "<script type='text/javascript'>alert('存储异常');</script>";
 				}
-
+				
 		}
 		
 	}

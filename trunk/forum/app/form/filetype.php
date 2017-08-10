@@ -6,5 +6,6 @@ class Form_filetype extends QForm {
 		$this->loadFromConfig(Helper_YAML::loadCached($filename));
 		$this->addValidations(Filetype::meta());	
 			
-	}
+	} 
 }
+

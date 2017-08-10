@@ -8,6 +8,7 @@
 
 <title>论坛<?php $this->_block('title'); ?><?php $this->_endblock(); ?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/index.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/listcenter.css">
 <?php $this->_block('link'); ?><?php $this->_endblock(); ?>
 	<script type="text/javascript">
 		function showsub(li){ 
@@ -24,18 +25,29 @@
 <div class="header">
 	<div class="header-center">
 		<div class="leftmenu">
-			<div class="imglog"><a href="<?php echo url('default/index') ?>">img</a></div>
+			<div class="imglog">
+				<a href="<?php echo url('default/index') ?>">
+					<img src="<?php echo $_BASE_DIR; ?>img/dog.jpg" style="width:50px;height: 90%; ">
+				</a>
+			</div>
 			<div class="contextlog"><a href="<?php echo url('file/filestylesave') ?>">log</a></div>
 		</div>
 		<div class="rightmenu">
 			<div class="usermenu">
 				<ul>
-					<li  onmouseover="showsub(this)" onmouseout="hidesub(this)"><a href="#">用户</a>
+					<li  onmouseover="showsub(this)" onmouseout="hidesub(this)">
+					<a href="#">
+						<?php $this->_block('user'); ?><?php $this->_endblock(); ?>
+					</a>
 						<ul>
-							<li><a href="<?php echo url('user/login') ?>">登录</a></li>
-							<li><a href="<?php echo url('user/register') ?>">注册</a></li>
+							<li style="display:<?php $this->_block('logindisplay'); ?><?php $this->_endblock(); ?>;">
+								<a href="<?php echo url('user/login') ?>">登录</a>
+							</li>
+							<li style="display:<?php $this->_block('registerdisplay'); ?><?php $this->_endblock(); ?>;">
+								<a href="<?php echo url('user/register') ?>">注册</a>
+							</li>
 							<li><a href="<?php echo url('fileupload/upload') ?>">上传</a></li>
-							<li><a href="#">退出</a></li>
+							<li><a href="<?php echo url('user/logout') ?>">退出</a></li>
 						</ul>
 					</li>
 				</ul>				

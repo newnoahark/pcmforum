@@ -1,0 +1,10 @@
+name:
+  _label: "文件名"
+type:
+  _label: "文件类型"
+tmp_name:
+  _label: "文件临时存放位置"
+error:
+  _label: "上传错误代码"
+size:
+  _label: "文件大小"

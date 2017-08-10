@@ -18,7 +18,7 @@
 		<input  class='limit_format' type="text" name="limit_format" id="limit_format" value=""><br>			
 		<br>
 		<label for="limit_sizetxt">limit_size</label>
-		<input  class='limit_sizetxt' type="text" name="limit_size" id="limit_sizetxt" min="1" max="1024" value=" ">
+		<input  class='limit_sizetxt' type="text" name="limit_size" id="limit_sizetxt" min="1" max="1024" value=" ">k
 		<input  class='limit_sizerange' type="range"  id="limit_sizerange" min="1" max="1024" value="" onchange="rangeslide(this.value)">
 		<br>
 			<label for="complete_code">complete_code</label>
@@ -49,7 +49,7 @@
 	     	}
 	     	function rangeslide(e) {
 	     		
-	    	document.getElementById("limit_sizetxt").value = e+"k";	
+	    	document.getElementById("limit_sizetxt").value = e;	
 
 	     	}
 </script>

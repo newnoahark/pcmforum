@@ -1,0 +1,31 @@
+.list-center {
+	margin: 0 auto;
+
+	height: 200px;
+	width: 700px;
+	margin-top: 35px; 
+}
+.list-center ul {
+	list-style:none;
+}
+.list-center ul li {
+	display: block;
+	margin: 12px;
+	border-bottom: 1px solid #D0D0D0;
+	padding-bottom: 200px;	
+}
+.list-center ul li p{
+	margin-top: 10px; 
+
+}
+.author {
+	width: 60%;
+	height: 10%px;
+}	
+.article-title
+{
+	font-family: 黑体;
+	font-size: 20px;
+}
+	
+ 
