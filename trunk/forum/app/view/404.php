@@ -30,11 +30,6 @@
       或者联系管理员报告错误。
     </p>
     <p>&nbsp;</p>
-    <p class="tip">
-      修改 "app/view/404.php" 文件可以定制此出错页面的内容。
-      <br />
-      <?php echo h($message); ?>
-    </p>
   </div>
 </body>
 </html>

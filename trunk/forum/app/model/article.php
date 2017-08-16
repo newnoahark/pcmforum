@@ -2,52 +2,11 @@
 // $Id$
 
 /**
- * File 封装来自 filetype 数据表的记录及领域逻辑
+ * Article 封装来自 ariticle 数据表的记录及领域逻辑
  */
-class File extends QDB_ActiveRecord_Abstract
+class Article extends QDB_ActiveRecord_Abstract
 {
 
-    //文件上传错误代码
-    public $error_code ;
-
-      //  重写构造函数 上传文件时在模型侧判断是否是否允许文件上传并保存
-    function __construct(){
-        parent::__construct();
-        $this->error_code = 0;
-        $this->judgefiletype();
-
-    }
-    //判断文件上传类型
-    function judgefiletype(){
-        //
-        if($_FILES["file"]['error'] > 0){
-            $this->error_code = $_FILES["file"]['error'] ;
-        } 
-        else {
-                $this->file_name = $_FILES["file"]["name"];
-                $this->file_type =  $_FILES["file"]["type"];
-                /**服务器上使用的是gb2312的编码格式，而本地使用的是utf8所以放在本地的话
-                *需要从新编码 iconv()
-                **/
-                $filename = iconv("utf-8","gb2312",$_FILES["file"]["name"]);
-            
-                //移动文件至本地
-                if (file_exists("E:\\downfile\\" . $filename)) {
-                    $this->error_code = "1001";
-                } else
-                {
-
-                     move_uploaded_file($_FILES["file"]["tmp_name"],"E:\\downfile\\". $filename);
-                     $this->complete_code = "E:\\downfile\\". $filename;
-                    
-                }
-         }
-
-
-
-    }
-
-   // $this->file_name = "hello"；
     /**
      * 返回对象的定义
      *
@@ -69,14 +28,14 @@ class File extends QDB_ActiveRecord_Abstract
             ),
 
             // 用什么数据表保存对象
-            'table_name' => 'filetype',
+            'table_name' => 'ariticle',
 
             // 指定数据表记录字段与对象属性之间的映射关系
             // 没有在此处指定的属性，QeePHP 会自动设置将属性映射为对象的可读写属性
             'props' => array
             (
                 // 主键应该是只读，确保领域对象的“不变量”
-                'fileid' => array('readonly' => true),
+                'Id' => array('readonly' => true),
 
                 /**
                  *  可以在此添加其他属性的设置
@@ -87,6 +46,11 @@ class File extends QDB_ActiveRecord_Abstract
                  * 添加对象间的关联
                  */
                 # 'other' => array('has_one' => 'Class'),
+                'author' => array(
+                                        QDB::BELONGS_TO => 'User',
+                                        'source_key' => 'author',
+                                        'target_key' => 'userid'
+                    )
 
             ),
 
@@ -100,7 +64,7 @@ class File extends QDB_ActiveRecord_Abstract
             /**
              * 拒绝使用 mass-assignment 方式赋值的属性
              */
-            'attr_protected' => 'fileid',
+            'attr_protected' => 'Id',
 
             /**
              * 指定在数据库中创建对象时，哪些属性的值不允许由外部提供
@@ -156,57 +120,27 @@ class File extends QDB_ActiveRecord_Abstract
              */
             'validations' => array
             (
-                'file_name' => array
+                'title' => array
                 (
-                    array('max_length', 128, '文件名称不能超过 128 个字符'),
+                    array('max_length', 255, '文章标题不能超过 255 个字符'),
 
                 ),
 
-                'code' => array
+                'centent' => array
                 (
-                    array('max_length', 128, '唯一代码不能超过 128 个字符'),
+                    array('not_empty', '文章内容不能为空'),
 
                 ),
 
-                'file_type' => array
+                'author' => array
                 (
-                    array('max_length', 128, '文件类型不能超过 128 个字符'),
+                    array('max_length', 255, '作者不能超过 255 个字符'),
 
                 ),
 
-                'iimit_format' => array
+                'date' => array
                 (
-                    array('max_length', 128, '限制格式不能超过 128 个字符'),
-
-                ),
-
-                'iimit_size' => array
-                (
-                    array('max_length', 128, '限制大小不能超过 128 个字符'),
-
-                ),
-
-                'complete_code' => array
-                (
-                    array('max_length', 250, '实现代码不能超过 250 个字符'),
-
-                ),
-
-                'sort' => array
-                (
-                    array('is_int', '排序必须是一个整数'),
-
-                ),
-
-                'status' => array
-                (
-                    array('is_int', '状态必须是一个整数'),
-
-                ),
-
-                'recycle' => array
-                (
-                    array('is_int', '回收站必须是一个整数'),
+                    array('max_length', 255, '创建日期不能超过 255 个字符'),
 
                 ),
 

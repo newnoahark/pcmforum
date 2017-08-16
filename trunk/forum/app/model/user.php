@@ -7,6 +7,7 @@
 class User extends QDB_ActiveRecord_Abstract
 {
 
+ 
     /**
      * 返回对象的定义
      *
@@ -14,6 +15,17 @@ class User extends QDB_ActiveRecord_Abstract
      *
      * @return array
      */
+    //创建属于当前用户的文章
+    function createatricle($title,$content = null ){
+        $article = new Article();
+        $article->author = $this;
+        $article->title = $title;
+        $article->content = $content;
+        return $article ;
+    }
+
+
+
     static function __define()
     {
         return array
@@ -50,7 +62,11 @@ class User extends QDB_ActiveRecord_Abstract
                  * 添加对象间的关联
                  */
                 # 'other' => array('has_one' => 'Class'),
-
+                'article' => array(
+                                        QDB::HAS_MANY => 'Article',
+                                        'source_key' => 'userid' ,
+                                        'target_key' => 'author'
+                    )
             ),
 
             /**
