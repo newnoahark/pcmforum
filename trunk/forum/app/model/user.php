@@ -7,6 +7,7 @@
 class User extends QDB_ActiveRecord_Abstract
 {
 
+ 
     /**
      * 返回对象的定义
      *

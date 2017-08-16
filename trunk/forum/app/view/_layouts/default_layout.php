@@ -7,8 +7,8 @@
 
 
 <title>论坛<?php $this->_block('title'); ?><?php $this->_endblock(); ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/index.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/listcenter.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/index.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/listcenter.css">
 <?php $this->_block('link'); ?><?php $this->_endblock(); ?>
 	<script type="text/javascript">
 		function showsub(li){ 
@@ -20,6 +20,10 @@
 			 submenu.style.display="none"; 
 			}
 	</script>
+	<!-- 根据需求动态添加的css样式 -->
+	<?php  $this->_block("layoutcss"); ?>
+	<?php $this->_endblock(); ?>
+
 </head>
 <body>
 <div class="header">
@@ -36,17 +40,22 @@
 			<div class="usermenu">
 				<ul>
 					<li  onmouseover="showsub(this)" onmouseout="hidesub(this)">
-					<a href="#">
-						<?php $this->_block('user'); ?><?php $this->_endblock(); ?>
-					</a>
-						<ul>
-							<li style="display:<?php $this->_block('logindisplay'); ?><?php $this->_endblock(); ?>;">
+						<a href="#">
+							<?php  echo isset($_SESSION["acl_forum_userdata"]["username"]) ?  $_SESSION["acl_forum_userdata"]["username"]:'用户';?>
+						</a>	
+							<ul>
+							<li style="display:<?php echo isset($_SESSION["acl_forum_userdata"]["username"]) ? "none" :' block';?>">
 								<a href="<?php echo url('user/login') ?>">登录</a>
 							</li>
-							<li style="display:<?php $this->_block('registerdisplay'); ?><?php $this->_endblock(); ?>;">
+							<li style="display:<?php echo isset($_SESSION["acl_forum_userdata"]["username"]) ? "block" :' none';?>">
+								<a href="<?php echo url('essay/index') ?>">写博客</a>
+							</li>
+							<li style="display:<?php echo isset($_SESSION["acl_forum_userdata"]["username"]) ? "none" :' block';?>">
 								<a href="<?php echo url('user/register') ?>">注册</a>
 							</li>
-							<li><a href="<?php echo url('fileupload/upload') ?>">上传</a></li>
+							<li style="display:<?php echo isset($_SESSION["acl_forum_userdata"]["username"]) ? "block" :' none';?>">
+								<a href="<?php echo url('fileupload/upload') ?>">上传</a>
+							</li>
 							<li><a href="<?php echo url('user/logout') ?>">退出</a></li>
 						</ul>
 					</li>
@@ -61,8 +70,10 @@
 		</div>	
 	</div>
 </div>
-<div class="photocenter" style="display:<?php $this->_block('photocenter'); ?><?php $this->_endblock(); ?>">	
-</div>
-<?php $this->_block('content'); ?><?php $this->_endblock();?>
+<div class="photocenter" style="display:<?php echo isset($_SESSION["acl_forum_userdata"]["username"]) ? "none" :' block';?>">	
+</div >
+	<div class="divCentre">
+		<?php $this->_block('content'); ?><?php $this->_endblock();?>
+	</div>
 </body>
 </html>

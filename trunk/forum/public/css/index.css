@@ -305,7 +305,16 @@ ul li ul li a:hover{
   height: 300px;
   background-color:pink;
 }
-/*
+.divCentre {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 100%;
+
+}
+
+
+
 .fileupload input[type=submit]{
   /*background-color: red;*/
  padding:3px; width:80px; height:30px;
@@ -314,6 +323,6 @@ ul li ul li a:hover{
    -webkit-border-radius: 15px;   /* Webkit browsers */
    border-radius:15px;            /* W3C syntax */
 }
-*/
+
 
 
